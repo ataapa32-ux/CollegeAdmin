@@ -1,0 +1,64 @@
+﻿<Page x:Class="CollegeAdmin.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="ProfilePage">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20" Width="350">
+
+            <TextBlock Text="Профиль студента" 
+                       FontSize="20" FontWeight="Bold" 
+                       Margin="0,0,0,15" 
+                       HorizontalAlignment="Center"/>
+
+            <!-- Фото -->
+            <Image x:Name="StudentPhotoImage" 
+                   Width="120" Height="120" 
+                   Margin="0,0,0,10" 
+                   Stretch="UniformToFill"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+
+            <Button Content="Изменить фото" 
+                    Click="ChangePhotoButton_Click" 
+                    Margin="0,0,0,20" 
+                    HorizontalAlignment="Center"/>
+
+            <!-- ФИО -->
+            <TextBlock Text="Фамилия:"/>
+            <TextBox x:Name="LastNameTextBox" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Имя:"/>
+            <TextBox x:Name="FirstNameTextBox" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Отчество:"/>
+            <TextBox x:Name="MiddleNameTextBox" Margin="0,0,0,10"/>
+
+            <!-- Группа -->
+            <TextBlock Text="Группа:"/>
+            <TextBox x:Name="GroupTextBox" Margin="0,0,0,10"/>
+
+            <!-- Курс -->
+            <TextBlock Text="Курс:"/>
+            <TextBox x:Name="CourseTextBox" Margin="0,0,0,20"/>
+
+            <!-- Сохранить -->
+            <Button Content="Сохранить профиль" 
+                    Click="SaveButton_Click" 
+                    Background="LightGreen" 
+                    Padding="5" 
+                    FontWeight="Bold"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+
+
+
+
+
+
+
+
+
+

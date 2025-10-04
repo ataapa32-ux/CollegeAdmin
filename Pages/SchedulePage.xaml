@@ -1,0 +1,45 @@
+﻿<Page x:Class="CollegeAdmin.Pages.SchedulePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="SchedulePage">
+
+    <StackPanel Margin="20">
+
+        <TextBlock Text="Расписание" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <!-- Список -->
+        <ListBox x:Name="ScheduleList" Height="200" Margin="0,0,0,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding DayOfWeek}" Width="100"/>
+                        <TextBlock Text="{Binding Time}" Width="70"/>
+                        <TextBlock Text="{Binding Subject}" Width="150"/>
+                        <TextBlock Text="{Binding Teacher}" Width="120"/>
+                        <TextBlock Text="{Binding Classroom}" Width="100"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Поля ввода -->
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBox x:Name="DayTextBox" Width="100" Margin="0,0,5,0"/>
+            <TextBox x:Name="TimeTextBox" Width="70" Margin="0,0,5,0"/>
+            <TextBox x:Name="SubjectTextBox" Width="150" Margin="0,0,5,0"/>
+            <TextBox x:Name="TeacherTextBox" Width="120" Margin="0,0,5,0"/>
+            <TextBox x:Name="ClassroomTextBox" Width="100" Margin="0,0,5,0"/>
+            <Button Content="Добавить" Click="AddButton_Click"/>
+        </StackPanel>
+
+        <!-- Кнопка сохранить -->
+        <Button Content="Сохранить расписание" Click="SaveButton_Click" Margin="0,10,0,0"/>
+
+    </StackPanel>
+</Page>
+
+
+
+
+
+

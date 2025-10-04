@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CollegeAdmin": {
+      "commandName": "Project",
+      "nativeDebugging": true,
+      "sqlDebugging": true,
+      "jsWebView2Debugging": true,
+      "remoteDebugEnabled": true
+    }
+  }
+}
