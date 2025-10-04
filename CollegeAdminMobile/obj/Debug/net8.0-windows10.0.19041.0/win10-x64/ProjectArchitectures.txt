@@ -1,1 +1,0 @@
-C:\Users\kaspa\source\repos\CollegeAdminMobile\CollegeAdminMobile.csproj;x64
