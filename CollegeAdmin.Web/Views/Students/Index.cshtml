@@ -1,0 +1,68 @@
+﻿@model CollegeAdmin.Web.Models.StudentsViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Список студентов";
+}
+
+<h2 class="mb-4">Список студентов</h2>
+
+<table class="table table-hover table-bordered align-middle" id="studentsTable">
+    <thead class="table-dark text-center">
+        <tr>
+            <th>ID</th>
+            <th class="text-start">ФИО</th>
+            <th>Email</th>
+            <th>Группа</th>
+            <th>Факультет</th>
+            <th>Куратор</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td class="text-center">@(string.IsNullOrEmpty(student.StudentId) ? "—" : student.StudentId)</td>
+                <td class="text-start fw-bold">@student.LastName @student.FirstName @student.MiddleName</td>
+                <td class="text-center">@student.Email</td>
+                <td class="text-center">@(student.Group ?? "—")</td>
+                <td class="text-center">@(student.Faculty ?? "—")</td>
+                <td class="text-center">@(student.Curator ?? "—")</td>
+                <td class="text-center">@student.GPA.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Styles {
+    <style>
+        #studentsTable tbody tr:hover {
+            background-color: #d0ebff;
+        }
+
+        #studentsTable td, #studentsTable th {
+            font-size: 1rem;
+            padding: 0.6rem;
+        }
+    </style>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

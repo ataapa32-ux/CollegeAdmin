@@ -1,0 +1,110 @@
+@model CollegeAdmin.Web.Models.StudentsViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Расписание";
+}
+
+<h2 class="mb-4">Расписание занятий</h2>
+
+<!-- Фильтр по дню недели -->
+<div class="mb-3">
+    <label for="dayFilter" class="form-label">Фильтр по дню недели:</label>
+    <select id="dayFilter" class="form-select w-auto" onchange="filterTable()">
+        <option value="">Все дни</option>
+        <option value="Понедельник">Понедельник</option>
+        <option value="Вторник">Вторник</option>
+        <option value="Среда">Среда</option>
+        <option value="Четверг">Четверг</option>
+        <option value="Пятница">Пятница</option>
+        <option value="Суббота">Суббота</option>
+    </select>
+</div>
+
+<table class="table table-hover table-bordered align-middle" id="scheduleTable">
+    <thead class="table-dark text-center">
+        <tr>
+            <th>День</th>
+            <th>Время</th>
+            <th>Предмет</th>
+            <th>Преподаватель</th>
+            <th>Аудитория</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ScheduleItems)
+        {
+            var dayClass = item.DayOfWeek.ToLower();
+            <tr class="@dayClass">
+                <td class="day text-center fw-bold">@item.DayOfWeek</td>
+                <td class="text-center">@item.Time</td>
+                <td>@item.Subject</td>
+                <td>@item.Teacher</td>
+                <td class="text-center">@item.Classroom</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Styles {
+    <style>
+        /* Цвета для дней недели */
+        .понедельник {
+            background-color: #e6f7ff;
+        }
+
+        .вторник {
+            background-color: #fff0f6;
+        }
+
+        .среда {
+            background-color: #f9f0ff;
+        }
+
+        .четверг {
+            background-color: #fffbe6;
+        }
+
+        .пятница {
+            background-color: #f6ffed;
+        }
+
+        .суббота {
+            background-color: #fff7e6;
+        }
+
+        /* Подсветка строки при наведении */
+        #scheduleTable tbody tr:hover {
+            background-color: #d0ebff;
+        }
+
+        /* Немного увеличенный шрифт и отступы */
+        #scheduleTable td, #scheduleTable th {
+            font-size: 1rem;
+            padding: 0.75rem;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function filterTable() {
+            var filter = document.getElementById("dayFilter").value;
+            var rows = document.querySelectorAll("#scheduleTable tbody tr");
+
+            rows.forEach(row => {
+                if (!filter || row.querySelector(".day").textContent === filter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+}
+
+
+
+
+
+

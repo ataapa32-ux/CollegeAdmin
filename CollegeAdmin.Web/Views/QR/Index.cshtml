@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "QR-сканер";
+}
+
+<h2 class="mb-4">QR-сканер посещаемости</h2>
+
+<div id="result"></div>
+<video id="preview" class="w-100 border rounded" style="max-height:400px"></video>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instascan/1.0.0/instascan.min.js"></script>
+    <script>
+        const preview = document.getElementById('preview');
+        const result = document.getElementById('result');
+
+        let scanner = new Instascan.Scanner({ video: preview });
+        scanner.addListener('scan', function (content) {
+            // ожидаем формат: "123456|2" или "SCHEDULE|2" + студент добавляет себя — но удобнее: QR содержит studentId|scheduleId
+            let parts = content.split('|');
+            if (parts.length !== 2) {
+                result.innerHTML = '<div class="alert alert-danger">Неподдерживаемый формат QR</div>';
+                return;
+            }
+            let studentId = parts[0];
+            let scheduleId = parseInt(parts[1]);
+
+            fetch('@Url.Action("MarkAttendance", "QR")', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ studentId: studentId, scheduleId: scheduleId })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    result.innerHTML = '<div class="alert alert-success">✅ Отметка: ' + data.student + '</div>';
+                } else {
+                    result.innerHTML = '<div class="alert alert-danger">❌ ' + (data.message || 'Ошибка') + '</div>';
+                }
+            })
+            .catch(err => {
+                result.innerHTML = '<div class="alert alert-danger">Ошибка запроса</div>';
+                console.error(err);
+            });
+        });
+
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) scanner.start(cameras[0]);
+            else result.innerHTML = '<div class="alert alert-warning">Камера не найдена</div>';
+        }).catch(e => {
+            result.innerHTML = '<div class="alert alert-danger">Ошибка доступа к камере</div>';
+            console.error(e);
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
+

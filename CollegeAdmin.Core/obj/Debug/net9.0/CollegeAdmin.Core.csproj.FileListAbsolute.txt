@@ -1,0 +1,4 @@
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net9.0\CollegeAdmin.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net9.0\CollegeAdmin.Core.AssemblyInfoInputs.cache
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net9.0\CollegeAdmin.Core.AssemblyInfo.cs
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net9.0\CollegeAdmin.Core.csproj.CoreCompileInputs.cache

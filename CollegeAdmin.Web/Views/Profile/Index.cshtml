@@ -1,0 +1,56 @@
+@model CollegeAdmin.Core.Models.User
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Профиль";
+}
+
+<h2 class="mb-4">Личный кабинет</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="@Model.PhotoPath" class="img-thumbnail mb-3" alt="Фото пользователя">
+    </div>
+    <div class="col-md-8">
+        <form asp-action="UpdateProfile" method="post">
+            <div class="mb-3">
+                <label class="form-label">Имя</label>
+                <input type="text" name="FirstName" class="form-control" value="@Model.FirstName" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Фамилия</label>
+                <input type="text" name="LastName" class="form-control" value="@Model.LastName" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Отчество</label>
+                <input type="text" name="MiddleName" class="form-control" value="@Model.MiddleName">
+            </div>
+
+            @if (Model.IsStudent)
+            {
+                <div class="mb-3">
+                    <label class="form-label">ID студента</label>
+                    <input type="text" class="form-control" value="@Model.StudentId" readonly>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">GPA</label>
+                    <input type="text" class="form-control" value="@Model.GPA.ToString("F2")" readonly>
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label">Пароль</label>
+                <input type="password" name="Password" class="form-control" value="@Model.Password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a class="btn btn-secondary" href="@Url.Action("Logout", "Profile")">Выйти</a>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+

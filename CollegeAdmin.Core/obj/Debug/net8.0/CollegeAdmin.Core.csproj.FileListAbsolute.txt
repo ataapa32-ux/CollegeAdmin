@@ -1,0 +1,12 @@
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\bin\Debug\net8.0\CollegeAdmin.Core.deps.json
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\bin\Debug\net8.0\CollegeAdmin.Core.dll
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\bin\Debug\net8.0\CollegeAdmin.Core.pdb
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.csproj.AssemblyReference.cache
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.AssemblyInfoInputs.cache
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.AssemblyInfo.cs
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.csproj.CoreCompileInputs.cache
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.dll
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\refint\CollegeAdmin.Core.dll
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\CollegeAdmin.Core.pdb
+C:\Users\kaspa\source\repos\CollegeAdmin.Core\obj\Debug\net8.0\ref\CollegeAdmin.Core.dll

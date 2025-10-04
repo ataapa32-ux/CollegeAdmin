@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "6oZCoGKp3i8=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\kaspa\\source\\repos\\CollegeAdminMobile\\CollegeAdminMobile.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kaspa\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1012",
+      "level": "Error",
+      "message": "Для некоторых целевых платформ отсутствует требуемая версия, несмотря на то, что указана платформа: net8.0-android, net8.0-ios, net8.0-maccatalyst.",
+      "projectPath": "C:\\Users\\kaspa\\source\\repos\\CollegeAdminMobile\\CollegeAdminMobile.csproj",
+      "filePath": "C:\\Users\\kaspa\\source\\repos\\CollegeAdminMobile\\CollegeAdminMobile.csproj",
+      "targetGraphs": []
+    }
+  ]
+}

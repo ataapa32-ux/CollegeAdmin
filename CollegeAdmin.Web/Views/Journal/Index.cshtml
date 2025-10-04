@@ -1,0 +1,79 @@
+﻿@model CollegeAdmin.Web.Models.JournalViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Журнал посещаемости";
+}
+
+<h2 class="mb-4">Журнал посещаемости</h2>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th class="text-start">ФИО</th>
+                <th>Группа</th>
+                <th>GPA</th>
+                @foreach (var schedule in Model.ScheduleItems)
+                {
+                    <th>
+                        @schedule.Subject
+                        <br />
+                        <small>@schedule.Time</small>
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td class="text-center">@(string.IsNullOrEmpty(student.StudentId) ? "—" : student.StudentId)</td>
+                    <td class="text-start fw-bold">@student.LastName @student.FirstName @student.MiddleName</td>
+                    <td class="text-center">@student.Group</td>
+                    <td class="text-center">@student.GPA.ToString("F2")</td>
+
+                    @foreach (var schedule in Model.ScheduleItems)
+                    {
+                        <td>
+                            @if (Model.Attendance.IsPresent(student.Id, schedule.Id))
+                            {
+                                <span class="text-success">✅</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">❌</span>
+                            }
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Styles {
+    <style>
+        table th small {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        tbody tr:hover {
+            background-color: #f1faff;
+        }
+    </style>
+}
+
+
+
+
+
+
+
+
+
+
+
+
